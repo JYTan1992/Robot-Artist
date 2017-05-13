@@ -1,0 +1,33 @@
+char* pszFileName="\coor.txt";
+	CStdioFile myFile;
+	CString longer, adder;
+	longer = ""; adder = "";
+	CFileException fileException;
+
+	if(myFile.Open(pszFileName,CFile::typeText|CFile::modeReadWrite),&fileException)
+
+	{
+		myFile.SeekToBegin();
+		for (int i=0; i<3; ++i)
+		{
+			myFile.ReadString(adder);
+			longer += adder + " ";
+		}
+	}
+	myFile.Close();
+	MessageBox(longer);
+}
+	#if 0
+CString ppp;
+	ppp = "1,2,3";
+	ppp.Replace(',',' ');
+	MessageBox(ppp);
+	std::string streamy = ppp.GetBuffer(0);
+	ppp.ReleaseBuffer();
+	int a, b,c;
+	istringstream stream(streamy);
+	stream >> a >> b >>c;
+	CString recon;
+	recon.Format("%d %d %d",a,b,c);
+	MessageBox(recon);
+#endif
